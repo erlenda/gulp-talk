@@ -1,0 +1,7 @@
+# ignore these
+
+# no modules please
+node_modules
+
+# no old builds please
+dist
