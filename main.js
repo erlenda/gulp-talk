@@ -1,28 +1,30 @@
-(function (namespace, undefined) {
-  namespace.hello = function () {
+(function (ns, undefined) {
+  ns.hello = function () {
     console.log('Hello world');
   };
+
+  ns.goodbye = function () {
+    console.log('Goodbye');
+  };
+
+  ns.hide = function (selector) {
+    var elems = Sizzle(selector);
+    elems[0].classList.add("hidden");
+  };
+
+  ns.bindKeys = function () {
+    Mousetrap.bind(['left'], function(e) {
+      console.log('left');
+      return false;
+    });
     
-  namespace.goodbye = function () {
-      console.log('Goodbye');
+    Mousetrap.bind(['right'], function(e) {
+      console.log('right');
+      return false;
+    });
   };
 
-  namespace.init = function () {
-    // remove loader
-    namespace.getElementByClass('loader').innerHTML = '';
-  };
-
-  namespace.getElementByClass = function (matchClass) {
-    // vanilla way of get element by class -function
-    var elems = document.getElementsByTagName('*'), i;
-    for (i in elems) {
-      if((' ' + elems[i].className + ' ').indexOf(' ' + matchClass + ' ') > -1) {
-        return elems[i];
-      }
-    }
-    return undefined;
-  }; 
-  
-  namespace.init();
+  ns.hide('.loader');
 
 })(window.gt = window.gt || {});
+

@@ -1,10 +1,33 @@
-## First slide
+About me
+---
+
+Cluttered gulpfile.js
+---
+
 ```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
+var gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    jshint = require('gulp-jshint'),
+
+    // ...    
+    
+    stylish = require('jshint-stylish'),
+    cfg = require('./package.json');
+
+    // ..
+
+    gulp.task('a', function () {
+      gulp.src(['...', '...', '...'])
+      .pipe(doSomethingA())
+      .pipe(doSomethingB())
+      .pipe(...)
+      .pipe(gulp.dest('dist'));
+    });
+    // ...
 ```
+
+Slide x
 ---
-## Second slide
----
-## Third slide
+
+Slide y
 ---

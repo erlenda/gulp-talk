@@ -17,30 +17,42 @@
     </header>
     <div class"slides">
       <!-- inject:slides:html -->
-      <h2 id="first-slide">First slide</h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> s = <span class="hljs-string">"JavaScript syntax highlighting"</span>;
-alert(s);
-</code></pre>
-<hr>
-<h2 id="second-slide">Second slide</h2>
-<hr>
-<h2 id="third-slide">Third slide</h2>
-<hr>
+      <h2 id="about-me">About me</h2>
+<h2 id="cluttered-gulpfile-js">Cluttered gulpfile.js</h2>
+<section class="slide slide-1">
+<code>javascript
+var gulp = require(&#39;gulp&#39;),
+    concat = require(&#39;gulp-concat&#39;),
+    jshint = require(&#39;gulp-jshint&#39;),
+
+    // ...    
+
+    stylish = require(&#39;jshint-stylish&#39;),
+    cfg = require(&#39;./package.json&#39;);
+
+    // ..
+
+    gulp.task(&#39;a&#39;, function () {
+      gulp.src([&#39;...&#39;, &#39;...&#39;, &#39;...&#39;])
+      .pipe(doSomethingA())
+      .pipe(doSomethingB())
+      .pipe(...)
+      .pipe(gulp.dest(&#39;dist&#39;));
+    });
+    // ...</code>
+</section>
+
+<h2 id="slide-x">Slide x</h2>
+<h2 id="slide-y">Slide y</h2>
 
       <!-- endinject -->
     </div>
     <footer>
       <h2 class="loader">Laster ...<h2>
-      <nav>
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-        </ul>
-      </nav>
     </footer>
+    
+    <script src="assets/sizzle.min.js"></script>
+    <script src="assets/mousetrap.min.js"></script>
     <script src="dist/main.js"></script>
   </body>
   </html>

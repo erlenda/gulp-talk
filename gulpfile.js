@@ -7,12 +7,11 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     markdown = require('gulp-markdown'),
     inject = require('gulp-inject'),
-    //highlight = require('highligh.js'),
-    //stylish = require('jshint-stylish'),
+    stylish = require('jshint-stylish'),
     cfg = require('./package.json');
 
-  /*var myServer = require('./gulpfig/my-server.js')
-      ,myBump = require('./gulpfig/my-bump.js')*/
+  var myServer = require('./gulpfig/my-server.js');
+      //myBump = require('./gulpfig/my-bump.js');
 
 // pipe'em!
 gulp.task('js', function () {
@@ -25,10 +24,17 @@ gulp.task('js', function () {
 
 gulp.task('jshint', function () {
   gulp.src(['main.js', 'gulpfile.js'])
-  .pipe(jshint().on('error', function () {
-    console.log('error');
+  .pipe(jshint({
+    "indent": 2,
+    "white": true,
+    "node": true,
+    "undef": true,
+    "predef": [ "Sizzle", "Mousetrap", "window" ],
+    "-W058": true,
+    "-W014": true,
+    "expr": true
   }))
-  .pipe(jshint.reporter('default'));
+  .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('sass', function () {
@@ -64,4 +70,10 @@ gulp.task('watch', function () {
   gulp.watch(['slides/*.md'], ['markdown']);
 });
 
+gulp.task('myServer', function () {
+  myServer.start('localhost', 8000);
+});
+
+
 gulp.task('default', ['sass', 'markdown', 'jshint', 'js', 'watch']);
+gulp.task('serve', ['myServer']);
