@@ -12,45 +12,84 @@
   </head>
 
   <body class="deck-container">
-    <header>
-      <h1>gulp presentasjon</h1>
-    </header>
+    <header></header>
     <div class"slides">
       <!-- inject:slides:html -->
-      <h2 id="about-me">About me</h2>
-<h2 id="cluttered-gulpfile-js">Cluttered gulpfile.js</h2>
-<section class="slide slide-1">
-<code>javascript
-var gulp = require(&#39;gulp&#39;),
-    concat = require(&#39;gulp-concat&#39;),
-    jshint = require(&#39;gulp-jshint&#39;),
+      <section class="hidden"></section><section class="hidden"><h2 id="gulp-js">Gulp.js</h2>
+<ul>
+<li>Erlend Andresen</li>
+<li>erlend.andresen@knowit.no</li>
+<li>6.etasje </li>
+</ul>
+<p><img src="https://raw2.github.com/gulpjs/artwork/master/gulp-2x.png" alt="Alt text" title="gulp logo"> </p>
+</section><section class="hidden"><h2 id="hva-er-gulp-js-">Hva er Gulp.js?</h2>
+<ul>
+<li>et byggsystem basert på strømmer</li>
+<li>benytter strømmer og kode fremfor konfigurasjon </li>
+<li><p>intuitivt, lett å lese</p>
+</li>
+<li><p>fordeler</p>
+<ul>
+<li>kjapt</li>
+<li>solide pakker via NPM</li>
+</ul>
+</li>
+</ul>
+</section><section class="hidden"><h2 id="gulp-js-api">gulp.js API</h2>
+<pre><code class="lang-javascript">gulp.<span class="hljs-function"><span class="hljs-title">src</span><span class="hljs-params">(globs[, options])</span></span>
+gulp.<span class="hljs-function"><span class="hljs-title">dest</span><span class="hljs-params">(path[, options])</span></span>
+gulp.<span class="hljs-function"><span class="hljs-title">task</span><span class="hljs-params">(name[, deps], fn)</span></span>
+gulp.<span class="hljs-function"><span class="hljs-title">watch</span><span class="hljs-params">(glob[, opts], tasks)</span></span>
 
-    // ...    
+https:<span class="hljs-comment">//github.com/gulpjs/gulp/blob/master/docs/API.md</span>
+</code></pre>
+</section><section class="hidden"><h2 id="overfylt-config-gulpfile-js-">overfylt config gulpfile.js </h2>
+<pre><code class="lang-javascript">var gulp = <span class="hljs-keyword">require</span>(<span class="hljs-string">'gulp'</span>),
+    concat = <span class="hljs-keyword">require</span>(<span class="hljs-string">'gulp-concat'</span>),
+    jshint = <span class="hljs-keyword">require</span>(<span class="hljs-string">'gulp-jshint'</span>),
 
-    stylish = require(&#39;jshint-stylish&#39;),
-    cfg = require(&#39;./package.json&#39;);
+    // <span class="hljs-keyword">...</span>    
 
-    // ..
+    stylish = <span class="hljs-keyword">require</span>(<span class="hljs-string">'jshint-stylish'</span>),
+    cfg = <span class="hljs-keyword">require</span>(<span class="hljs-string">'./package.json'</span>),
+    myServer = <span class="hljs-keyword">require</span>(<span class="hljs-string">'./gulpfig/my-server.js'</span>);
 
-    gulp.task(&#39;a&#39;, function () {
-      gulp.src([&#39;...&#39;, &#39;...&#39;, &#39;...&#39;])
+    // <span class="hljs-keyword">...</span>
+
+    gulp.task(<span class="hljs-string">'a'</span>, <span class="hljs-keyword">function</span> () {
+      gulp.src([<span class="hljs-string">'...'</span>, <span class="hljs-string">'...'</span>, <span class="hljs-string">'...'</span>])
       .pipe(doSomethingA())
       .pipe(doSomethingB())
-      .pipe(...)
-      .pipe(gulp.dest(&#39;dist&#39;));
+      .pipe(<span class="hljs-keyword">...</span>)
+      .pipe(gulp.dest(<span class="hljs-string">'dist'</span>));
     });
-    // ...</code>
+    // <span class="hljs-keyword">...</span>
+
+    gulp.task(<span class="hljs-string">'default'</span>, [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'...'</span>, <span class="hljs-string">'z'</span>]);
+</code></pre>
+</section><section class="hidden"><h2 id="laste-egne-tasks-">laste egne tasks </h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> task = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./gulpfig/task.js'</span>);
+
+<span class="hljs-comment">// Vis litt kode</span>
+</code></pre>
+</section><section class="hidden"><h2 id="benchmark">Benchmark</h2>
+<h3 id="sass-benchmark">Sass benchmark</h3>
+<p><img src="http://tech.tmw.co.uk/img/blog/kickoff-gulp-test/compare-sass.gif" alt="Alt text" title="sass benchmark"> </p>
+<h3 id="uglify-benchmark">Uglify benchmark</h3>
+<p><img src="http://tech.tmw.co.uk/img/blog/kickoff-gulp-test/compare-js.gif" alt="Alt text" title="uglify benchmark"></p>
+</section><section class="hidden"><h2 id="credits">Credits</h2>
+<p><img src="http://s3-eu-west-1.amazonaws.com/nusdigital/event/logos/12524/original/teach-hub-halloween-lesson-plans-300x300.jpg" alt="Alt text" title="uglify benchmark"></p>
+<ul>
+<li>gulpjs.com</li>
+<li>benchmark: <a href="http://tech.tmw.co.uk/img/blog/kickoff-gulp-test/">http://tech.tmw.co.uk/img/blog/kickoff-gulp-test/</a></li>
+</ul>
 </section>
-
-<h2 id="slide-x">Slide x</h2>
-<h2 id="slide-y">Slide y</h2>
-
       <!-- endinject -->
     </div>
     <footer>
       <h2 class="loader">Laster ...<h2>
     </footer>
-    
+    <script src="assets/superagent.js"></script>
     <script src="assets/sizzle.min.js"></script>
     <script src="assets/mousetrap.min.js"></script>
     <script src="dist/main.js"></script>

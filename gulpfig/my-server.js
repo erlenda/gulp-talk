@@ -1,14 +1,13 @@
 exports.start = function (host, port) {
   var slides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       Hapi = require('hapi'),
-      server = new Hapi.Server(host, port);
+      server = new Hapi.Server(host, port,{ cors: true });
   
   server.route([{
     method: 'GET',
     path: '/prev/from/{slideNumber}',
     handler: function (request, reply) {
       var result = parseInt(request.params.slideNumber) - 1;
-      console.log(slides);
       reply(result < 0 ? 0 : result);
     }
   },
@@ -17,7 +16,6 @@ exports.start = function (host, port) {
     path: '/next/from/{slideNumber}',
     handler: function (request, reply) {
       var result = parseInt(request.params.slideNumber) + 1;
-      console.log(slides);
       reply(result > slides.length - 1 ? slides.length - 1 : result);
     }
   }]);
