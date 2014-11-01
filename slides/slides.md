@@ -3,25 +3,30 @@ Gulp.js
 
 * Erlend Andresen
 * erlend.andresen@knowit.no
-* 6.etasje 
+* github.com/erlenda
 
 ![Alt text](https://raw2.github.com/gulpjs/artwork/master/gulp-2x.png "gulp logo") 
 
 Hva er Gulp.js?
 ---
 
-* et byggsystem basert på strømmer
-* benytter strømmer og kode fremfor konfigurasjon 
+* BYGGSYSTEM / JS Runner
+* benytter seg av node.js strømming
+* kode fremfor konfigurasjon
 * intuitivt, lett å lese
+* kjapt
+* strenge krav til pakker via NPM
+* lett å komme i gang
+* gøy?
 
-* fordeler
-  * kjapt
-  * solide pakker via NPM
+* ulemper 
+  * ikke like stort community som grunt 
 
 gulp.js API
 ---
 
 ```javascript
+// Lite API...
 gulp.src(globs[, options])
 gulp.dest(path[, options])
 gulp.task(name[, deps], fn)
@@ -53,6 +58,7 @@ var gulp = require('gulp'),
       .pipe(...)
       .pipe(gulp.dest('dist'));
     });
+
     // ...
 
     gulp.task('default', ['a', 'b', '...', 'z']);
@@ -67,7 +73,6 @@ var task = require('./gulpfig/task.js');
 // Vis litt kode
 ```
 
-
 Benchmark
 ---
 
@@ -78,14 +83,15 @@ Benchmark
 ![Alt text](http://tech.tmw.co.uk/img/blog/kickoff-gulp-test/compare-js.gif "uglify benchmark")
 
 
-
-Credits
+Takk!
 ---
-
 
 ![Alt text](http://s3-eu-west-1.amazonaws.com/nusdigital/event/logos/12524/original/teach-hub-halloween-lesson-plans-300x300.jpg "uglify benchmark")
 
+(creds)
 * gulpjs.com
 * benchmark: http://tech.tmw.co.uk/img/blog/kickoff-gulp-test/
+
+github.com/erlenda
 
 

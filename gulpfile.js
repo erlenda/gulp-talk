@@ -10,6 +10,9 @@ var myServer = require('./gulpfig/my-server.js'),
     myMarkdown = require('./gulpfig/my-markdown.js'),
     myJshint = require('./gulpfig/my-jshint.js');
 
+//var plugins = require('gulp-load-plugins')();
+
+
 // pipe'em!
 gulp.task('js', function () {
   gulp.src('main.js')
